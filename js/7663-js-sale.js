@@ -131,35 +131,24 @@ const teamMint = async (e)=> {
         document.getElementById("mint_button").innerHTML = "BUSY...";
         document.getElementById("tokens_available").innerHTML = "MINTING...";
         try {
-          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          account = accounts[0];
-  
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
           const web3 = new Web3(window.ethereum);
-          contract = new web3.eth.Contract(abi, CONTRACT_ADDR, {from: account});
-          
-          var chAccount = web3.utils.toChecksumAddress(account);
-          var addressIndex = signatures.indexOf(chAccount);
-  
-          if (addressIndex != -1) {
-            addressSign = signatures[addressIndex + 1];
-            }
-          else
-            {
-            addressSign = signatures[0];
-            }
-          
-          value = (price * _mintAmount);
-  
-          const gas = Math.round( await contract.methods.mintTeam(_mintAmount, addressSign).estimateGas({value: value.toString(), from: account}) * 1.1 );
-          result = await contract.methods.mintTeam(_mintAmount, addressSign).send({value: value.toString(), from: account, gas: gas});
-  
-          success = document.getElementById("tokens_available").innerHTML = "SUCCESS!";
-          } 
-        catch(e)
+          const contract = new web3.eth.Contract(abi, CONTRACT_ADDR, {gas: 3000000});
+
+          const cost = await contract.methods.cost().call()
+          const value = (cost * _mintAmount)
+          const gas = Math.round( await contract.methods.mintTeam(_mintAmount).estimateGas({value: value.toString(), from: accounts[0]}) * 1.1 )
+          result = await contract.methods.mintTeam(_mintAmount).send({value: value.toString(), from: accounts[0], gas: gas})
+
+          success = document.getElementById("mint_button").innerHTML = "MINT";
+          document.getElementById("tokens_available").innerHTML = "SUCCESS!";
+          }
+        catch(e) 
           {
-          alert("Error: " + e.message);
-          console.log("Error: ",e);
-          document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
+          alert("Error: " + e.message)
+          console.log("Error: ",e)
+          document.getElementById("mint_button").innerHTML = "MINT";
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
           }
         }
     }     
