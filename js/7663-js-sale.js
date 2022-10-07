@@ -70,7 +70,7 @@ const mint = async (e)=> {
           alert("Error: " + e.message)
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
           }
         }
     }     
@@ -115,7 +115,7 @@ const whitelistMint = async (e)=> {
 			  {
 			  alert("Error: " + e.message);
 			  console.log("Error: ",e);
-			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
+			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + maxSupply;
 			  }
 		}
 	}
@@ -148,7 +148,7 @@ const teamMint = async (e)=> {
           alert("Error: " + e.message)
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
           }
         }
     }     
@@ -174,11 +174,13 @@ const connect = async (e)=> {
 	    price = await contract.methods.cost().call();
 
       if (paused) { document.getElementById("phase").innerHTML = "CONTRACT IS PAUSED"; }
-	    else { if (WL) { document.getElementById("phase").innerHTML = "WHITELIST MINT | MAX " + maxPerTx + " PER TRX"; }
-	    else { document.getElementById("phase").innerHTML = "PUBLIC MINT | MAX " + maxPerTx + " PER TRX"; }
-	    }
+	  	else { if (TM) { document.getElementById("phase").innerHTML = "PRESALE MINT | MAX " + maxPerTx + " PER TRX"; }
+	  	else { if (WL) {document.getElementById("phase").innerHTML = "WHITELIST MINT | MAX " + maxPerTx + " PER TRX"; }
+	  	else {document.getElementById("phase").innerHTML = "PUBLIC MINT | MAX " + maxPerTx + " PER TRX"; }
+	  	}
+	  }
 
-	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + 2000;
+	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
 	  document.getElementById("price").innerHTML = "COST " + (price / 1e18) + " ETH";
     //document.getElementById('tokens_amount').value = maxPerTx;
 	  }
