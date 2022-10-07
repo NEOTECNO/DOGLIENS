@@ -70,7 +70,7 @@ const mint = async (e)=> {
           alert("Error: " + e.message)
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
           }
         }
     }     
@@ -115,7 +115,7 @@ const whitelistMint = async (e)=> {
 			  {
 			  alert("Error: " + e.message);
 			  console.log("Error: ",e);
-			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + maxSupply;
+			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
 			  }
 		}
 	}
@@ -148,7 +148,7 @@ const teamMint = async (e)=> {
           alert("Error: " + e.message)
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
           }
         }
     }     
@@ -180,7 +180,7 @@ const connect = async (e)=> {
 	  	}
 	  }
 
-	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
+	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
 	  document.getElementById("price").innerHTML = "COST " + (price / 1e18) + " ETH";
     //document.getElementById('tokens_amount').value = maxPerTx;
 	  }
@@ -193,16 +193,14 @@ document.getElementById('connect_button').onclick = connect;
 
 connect();
 
-if (TM) {
-  document.getElementById('mint_button').onclick = teamMint;
-  }
+if (TM = true) {document.getElementById('mint_button').onclick = teamMint;}
   else
-  { if (WL) {document.getElementById('mint_button').onclick = whitelistMint;}
-    else {document.getElementById('mint_button').onclick = mint;}
+  { if (WL = true) 
+    {document.getElementById('mint_button').onclick = whitelistMint;}
+    else 
+    {document.getElementById('mint_button').onclick = mint;}
   }
 
   const signatures = [
-    '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-    '0x5F3Bf71Aef44E5C9dc152D001c5A88b2502057E8',
-    '0x1b36a4e50158fe95927449f672459c445d64f604129b34ddf9c0e3bf0f5676a15431ec2985c148011cf289d836dae37a659b2485c623348ba5814760f6c279df1b'
+    '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
   ]
