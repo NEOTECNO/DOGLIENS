@@ -192,15 +192,9 @@ document.getElementById('connect_button').onclick = connect;
 
 connect();
 
-if (TM = true) {document.getElementById('mint_button').onclick = teamMint;}
-  else
-  { if (WL = true) 
-    {document.getElementById('mint_button').onclick = whitelistMint;}
-    else 
-    {document.getElementById('mint_button').onclick = mint;}
-  }
+document.getElementById('mint_button').onclick = whitelistMint;
 
-  const signatures = [
+const signatures = [
   '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   '0x007a05122899a536cfe035337fDC1B8559d2C75a',
   '0x8c96078d8a847b8c4f9a4808a0e417cc8e14336c5b6d505ba0ede06c58edf7501c67dde3fbb65b7c017e9f17c93bbf41e05235104a8ca7efbc957a9ed0b38ad41c',
