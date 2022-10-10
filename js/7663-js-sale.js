@@ -67,8 +67,8 @@ const mint = async (e)=> {
           }
         catch(e) 
           {
-            alert("Error: " + "Public mint is not active or max mint amount per address exceeded!")
-          console.log("Error: ",e)
+            alert("Error: " + e.message);
+          console.log("Error: ",e);
           document.getElementById("mint_button").innerHTML = "MINT";
           document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
           }
@@ -113,8 +113,8 @@ const whitelistMint = async (e)=> {
 			  } 
 		  catch(e)
 			  {
-        alert("Error: " + "You are not Whitelisted or max mint amount per address exceeded!")
-			  console.log("Error: ",e);
+          alert("Error: " + e.message);
+          console.log("Error: ",e);
 			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
 			  }
 		}
