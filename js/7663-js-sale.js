@@ -174,7 +174,7 @@ const connect = async (e)=> {
 
       if (paused) { document.getElementById("phase").innerHTML = "CONTRACT IS PAUSED"; }
 	  	else { if (TM) { document.getElementById("phase").innerHTML = "PRESALE MINT | MAX " + maxPerTx + " PER TRX"; }
-	  	else { if (WL) {document.getElementById("phase").innerHTML = "WHITELIST MINT | MAX " + maxPerTx + " PER TRX"; }
+	  	else { if (WL) {document.getElementById("phase").innerHTML = "OG PHASE MINT | MAX " + maxPerTx + " PER TRX"; }
 	  	else {document.getElementById("phase").innerHTML = "PUBLIC MINT | MAX " + maxPerTx + " PER TRX"; }
 	  	}
 	  }
