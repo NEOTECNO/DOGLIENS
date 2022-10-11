@@ -67,7 +67,7 @@ const mint = async (e)=> {
           }
         catch(e) 
           {
-            alert("Error: " + e.message);
+          alert("Error: " + e.message);
           console.log("Error: ",e);
           document.getElementById("mint_button").innerHTML = "MINT";
           document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
@@ -175,7 +175,7 @@ const connect = async (e)=> {
       if (paused) { document.getElementById("phase").innerHTML = "CONTRACT IS PAUSED"; }
 	  	else { if (TM) { document.getElementById("phase").innerHTML = "PRESALE MINT | MAX " + maxPerTx + " PER TRX"; }
 	  	else { if (WL) {document.getElementById("phase").innerHTML = "WHITELIST MINT | MAX " + maxPerTx + " PER WALLET"; }
-	  	else {document.getElementById("phase").innerHTML = "PUBLIC MINT | MAX " + maxPerTx + " PER TRX"; }
+	  	else {document.getElementById("phase").innerHTML = "PUBLIC MINT | MAX " + maxPerTx + " PER WALLET"; }
 	  	}
 	  }
 
@@ -192,7 +192,7 @@ document.getElementById('connect_button').onclick = connect;
 
 connect();
 
-document.getElementById('mint_button').onclick = whitelistMint;
+document.getElementById('mint_button').onclick = mint;
 
 const signatures = [
   '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
