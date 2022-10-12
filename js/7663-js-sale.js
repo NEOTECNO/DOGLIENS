@@ -70,7 +70,7 @@ const mint = async (e)=> {
           alert("Error: " + e.message);
           console.log("Error: ",e);
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
           }
         }
     }     
@@ -115,7 +115,7 @@ const whitelistMint = async (e)=> {
 			  {
           alert("Error: " + e.message);
           console.log("Error: ",e);
-			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
+			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + maxSupply;
 			  }
 		}
 	}
@@ -147,7 +147,7 @@ const teamMint = async (e)=> {
           alert("Error: " + "Not a team member or max mint amount per address exceeded!")
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
           }
         }
     }     
@@ -179,7 +179,7 @@ const connect = async (e)=> {
 	  	}
 	  }
 
-	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + maxSupply;
 	  document.getElementById("price").innerHTML = "COST " + (price / 1e18) + " ETH";
     //document.getElementById('tokens_amount').value = maxPerTx;
 	  }
