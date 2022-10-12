@@ -70,7 +70,7 @@ const mint = async (e)=> {
           alert("Error: " + e.message);
           console.log("Error: ",e);
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = "SOLD OUT";
           }
         }
     }     
@@ -115,7 +115,7 @@ const whitelistMint = async (e)=> {
 			  {
           alert("Error: " + e.message);
           console.log("Error: ",e);
-			  document.getElementById("tokens_available").innerHTML = totalSupply + "/" + "2000";
+			  document.getElementById("tokens_available").innerHTML = "SOLD OUT";
 			  }
 		}
 	}
@@ -147,7 +147,7 @@ const teamMint = async (e)=> {
           alert("Error: " + "Not a team member or max mint amount per address exceeded!")
           console.log("Error: ",e)
           document.getElementById("mint_button").innerHTML = "MINT";
-          document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+          document.getElementById("tokens_available").innerHTML = "SOLD OUT";
           }
         }
     }     
@@ -179,8 +179,9 @@ const connect = async (e)=> {
 	  	}
 	  }
 
-	  document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
-	  document.getElementById("price").innerHTML = "COST " + (price / 1e18) + " ETH";
+    document.getElementById("tokens_available").innerHTML = "SOLD OUT";
+	  //document.getElementById("tokens_available").innerHTML = totalSupply + " / " + "2000";
+	  document.getElementById("price").innerHTML = "500 remaining to be announced!";
     //document.getElementById('tokens_amount').value = maxPerTx;
 	  }
     else { document.getElementById("connect_button").innerHTML = "Connect wallet"; }
@@ -192,7 +193,7 @@ document.getElementById('connect_button').onclick = connect;
 
 connect();
 
-document.getElementById('mint_button').onclick = mint;
+//document.getElementById('mint_button').onclick = mint;
 
 const signatures = [
   '0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
